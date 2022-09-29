@@ -11,11 +11,11 @@ import { Juego } from './juego/entities/juego.entity';
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: '35.208.51.255',
-      port: 3306,
-      username: 'uc9ahfxwazcwc',
-      password: '@@@fercolor$$$',
-      database: 'dbivggvxcan6uw',
+      host: process.env.DB_HOST,
+      port: parseInt(process.env.DB_PORT),
+      username: process.env.DB_USER,
+      password: process.env.DB_PWD,
+      database: process.env.DB_NAME,
       entities: [Empresa, Juego],
       synchronize: true,
     }),
